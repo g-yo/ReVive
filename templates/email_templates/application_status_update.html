@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Application Status Update</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            background-color: #4a90e2;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px 5px 0 0;
+        }
+        .content {
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-top: none;
+            border-radius: 0 0 5px 5px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 12px;
+            color: #777;
+        }
+        .status-approved {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-left: 4px solid #28a745;
+            margin: 15px 0;
+        }
+        .status-rejected {
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-left: 4px solid #dc3545;
+            margin: 15px 0;
+        }
+        .next-steps {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-left: 4px solid #4a90e2;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Rehab Center</h1>
+    </div>
+    <div class="content">
+        <h2>Application Status Update</h2>
+        <p>Dear {{ username }},</p>
+        <p>We are writing to inform you about an update on your application for the <strong>{{ application_type }}</strong> treatment program at Rehab Center.</p>
+        
+        {% if status == 'approved' %}
+        <div class="status-approved">
+            <h3>Application Approved</h3>
+            <p>We are pleased to inform you that your application has been approved.</p>
+            {% if start_date %}
+            <p><strong>Program Start Date:</strong> {{ start_date }}</p>
+            <p>Please arrive at our center at least 30 minutes before your scheduled time on the start date.</p>
+            {% else %}
+            <p>You will be notified about the program start date soon.</p>
+            {% endif %}
+        </div>
+        
+        <div class="next-steps">
+            <h3>Next Steps</h3>
+            <p>A staff member will be assigned to your case and will contact you with further details about your treatment program.</p>
+            <p>Please ensure that you have completed all the necessary paperwork and medical forms before your start date.</p>
+        </div>
+        {% elif status == 'rejected' %}
+        <div class="status-rejected">
+            <h3>Application Not Approved</h3>
+            <p>We regret to inform you that we are unable to approve your application at this time.</p>
+            <p>This decision was made after careful consideration of your application details and our current program capacity.</p>
+        </div>
+        
+        <div class="next-steps">
+            <h3>What's Next?</h3>
+            <p>You may contact our support team for more information about this decision and to discuss alternative options that might be suitable for your needs.</p>
+            <p>You are welcome to submit a new application in the future with updated information.</p>
+        </div>
+        {% endif %}
+        
+        <p>If you have any questions or need further clarification, please don't hesitate to contact our support team.</p>
+        <p>Best regards,<br>The Rehab Center Team</p>
+    </div>
+    <div class="footer">
+        <p>&copy; {% now "Y" %} Rehab Center. All rights reserved.</p>
+        <p>This is an automated message, please do not reply.</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Registration Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            background-color: #4a90e2;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px 5px 0 0;
+        }
+        .content {
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-top: none;
+            border-radius: 0 0 5px 5px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 12px;
+            color: #777;
+        }
+        .button {
+            display: inline-block;
+            background-color: #4a90e2;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Welcome to Rehab Center</h1>
+    </div>
+    <div class="content">
+        <h2>Registration Successful!</h2>
+        <p>Dear {{ username }},</p>
+        <p>Thank you for registering with Rehab Center. Your account has been successfully created.</p>
+        <p>You can now access our services and submit applications for treatment programs. Our team is dedicated to providing you with the support and care you need.</p>
+        <p>If you have any questions or need assistance, please don't hesitate to contact our support team.</p>
+        <p>Best regards,<br>The Rehab Center Team</p>
+    </div>
+    <div class="footer">
+        <p>&copy; {% now "Y" %} Rehab Center. All rights reserved.</p>
+        <p>This is an automated message, please do not reply.</p>
+    </div>
+</body>
+</html>
